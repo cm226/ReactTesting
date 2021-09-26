@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {StateThingy} from './StateThingy'
 import ReduxTest from './ReduxTest.ts'
+import {useSelector} from './ReactReduxBinding/Selector.ts'
 
 interface IProps {
     state: StateThingy | undefined
@@ -11,10 +12,9 @@ let reduxTest = new ReduxTest();
 
 export const EditableList = (props : IProps) => {
 
-    const [state, setState] = React.useState(reduxTest.Store.getState());
-    reduxTest.Store.subscribe(()=>{setState(reduxTest.Store.getState())});
+    let list = useSelector(reduxTest.store, (state)=>state.value)
 
-    const items = state.value.map((item)=>
+    const items = list.map((item)=>
             <li key={item.id}>{item.text}</li>
         );
     return <div>
