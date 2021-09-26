@@ -11,7 +11,6 @@ export const StateCard = (props : IProps) => {
 
     if(props.state === undefined) return <div/>;
 
-
     const [state, setState] = React.useState(props.state.GetState());
     
     props.state.Changed((newState)=>{setState(newState);})
