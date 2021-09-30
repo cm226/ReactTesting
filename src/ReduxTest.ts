@@ -37,6 +37,10 @@ class ReduxTest {
         this.store.dispatch({ type: "list/add", payload : message });
     }
 
+    public remove(id : number){
+        this.store.dispatch({ type: "list/remove", payload : id });
+    }
+
     public get Store(){
         return this.store;
     }

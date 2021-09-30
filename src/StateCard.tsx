@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import './StateCard.scss'
 import {StateThingy} from './StateThingy'
 
 interface IProps {

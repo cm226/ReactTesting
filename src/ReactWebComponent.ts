@@ -1,13 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {App} from './ReactComponent.tsx';
-import styleTextCard from './StateCard.scss'
 import {StateThingy} from './StateThingy'
+import css from './App.css'
 
-const styleCard = document.createElement('style');
-styleCard.type = 'text/css';
-styleCard.appendChild(document.createTextNode(styleTextCard));
-
+const style = document.createElement('style');
+style.type="text/css";
+style.appendChild(document.createTextNode(css));
 
 export default class ReactWebComponent extends HTMLElement {
 
@@ -22,7 +21,7 @@ export default class ReactWebComponent extends HTMLElement {
     this.mountPoint.id = "root";
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(this.mountPoint);
-    shadowRoot.appendChild(styleCard.cloneNode(true));
+    shadowRoot.appendChild(style.cloneNode(true));
 
     ReactDOM.render(this.createApp(), this.mountPoint);
   }
